@@ -38,8 +38,8 @@ class RegisterController extends Controller
             'password' => bcrypt($validatedData['password']),
         ]);
 
-        // Arahkan pengguna ke route login dengan pesan sukses
         return redirect()->route('login')->with('success', trans('auth.register_success'));
     }
+
 
 }

@@ -3,7 +3,7 @@
     <div class="container-fluid">
         @if (session('success'))
             <div class="alert alert-success">
-                {{ session('success') }}
+                {{ session('success', Auth::user()->name) }}
             </div>
         @endif
 

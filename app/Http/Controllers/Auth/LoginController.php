@@ -19,7 +19,8 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         #Validasi input dengan pesan kesalahan kustom
         $validatedData = $request->validate([
             'email' => 'required|email',
@@ -42,6 +43,6 @@ class LoginController extends Controller
         $request->session()->regenerate();
 
         #Arahkan pengguna ke dashboard
-        return redirect()->route('dashboard')->with('success', "You've been logged in!");
+        return redirect()->route('dashboard')->with('success', "You've been logged in! " . Auth::user()->name);
     }
 }
