@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Admin\Dashboard\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view('auth.login');
-});
-Route::get('/register', function () {
-    return view('auth.register');
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'login'])->name('login.action');
+    Route::get('/register', [RegisterController::class, 'index'])->name('register');
+    Route::post('/register', [RegisterController::class, 'register'])->name('register.action');
 });
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard.index');
+Route::middleware(['auth'])->group(function () {
+    Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+    Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });

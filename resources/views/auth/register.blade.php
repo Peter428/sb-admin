@@ -21,6 +21,9 @@
         <div class="row justify-content-center">
             <div class="col-xl-10 col-lg-12 col-md-9">
                 <div class="card o-hidden border-0 shadow-lg" style="margin-top: 200px">
+                    <div class="card-header o-hidden">
+                        <h4 class="m-0 font-weight-bold text-primary text-center">Sistem Informasi Sewa Kos</h1>
+                    </div>
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
