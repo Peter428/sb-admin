@@ -42,6 +42,6 @@ class LoginController extends Controller
         $request->session()->regenerate();
 
         #Arahkan pengguna ke dashboard
-        return redirect()->route('dashboard')->with('success', trans('auth.login_success'));
+        return redirect()->route('dashboard')->with('success', "You've been logged in!");
     }
 }

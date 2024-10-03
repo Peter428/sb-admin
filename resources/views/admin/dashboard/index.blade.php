@@ -2,13 +2,13 @@
 @section('content')
     <div class="container-fluid">
         @if (session('success'))
-            <div class="alert alert-success auto-close">
+            <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
 
         @if ($errors->any())
-            <div class="alert alert-danger auto-close">
+            <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -166,35 +166,11 @@
                         icon in the card header can be clicked on in order to toggle a dropdown menu.
                     </div>
                 </div>
-
-                <!-- Collapsable Card Example -->
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Accordion -->
-                    <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button"
-                       aria-expanded="true" aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-primary">Collapsable Card Example</h6>
-                    </a>
-                    <!-- Card Content - Collapse -->
-                    <div class="collapse show" id="collapseCardExample">
-                        <div class="card-body">
-                            This is a collapsable card example using Bootstrap's built in collapse
-                            functionality. <strong>Click on the card header</strong> to see the card body
-                            collapse and expand!
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
 @endsection
 @push('scripts')
-    <script>
-        $(document).ready(function () {
-            setTimeout(function () {
-                $('.auto-close').fadeOut('slow');
-            }, 3000);
-        });
-    </script>
 
 @endpush
