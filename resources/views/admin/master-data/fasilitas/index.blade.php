@@ -11,20 +11,23 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover table-fasilitas" id="table-fasilitas">
+                        <table class="table table-bordered table-hover table-data dataTables" id="table-fasilitas">
                             <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Code Fasilitas</th>
-                                <th>Nama Fasilitas</th>
+                                <th class="w-3p">No</th>
+                                <th class="w-10p">Code Fasilitas</th>
+                                <th class="w-10p">Nama Fasilitas</th>
                                 <th>Deskripsi Fasilitas</th>
-                                <th>Aksi</th>
+                                <th class="w-5p">Aksi</th>
                             </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $no = 1;
+                            @endphp
                             @forelse($fasilitas as $key => $item)
                                 <tr>
-                                    <td>{{$key + 1}}</td>
+                                    <td>{{$no ++}}</td>
                                     <td>{{$item->code_fasilitas}}</td>
                                     <td>{{$item->nama_fasilitas}}</td>
                                     <td>{{$item->keterangan_fasilitas ?? '-'}}</td>
@@ -50,15 +53,11 @@
 
 @endsection
 @push('page-scripts')
+    <script src="{{asset('assets/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script>
         $(document).ready(function () {
-            /*$(`#table-fasilitas`).DataTable({
-                responsive: true
-            });*/
-            new DataTable(`#table-fasilitas`,{
-                responsive: true,
-            });
-
+            $(`#table-fasilitas`).DataTable();
         });
     </script>
 @endpush
