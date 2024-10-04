@@ -6,6 +6,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\MasterData\CategoriesController;
+use App\Http\Controllers\Admin\MasterData\FasilitasController;
+use App\Http\Controllers\Admin\MasterData\KostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +38,18 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::prefix('master-data')->group(function () {
-            Route::get('categories', [CategoriesController::class, 'index'])->name('categories.index');
-            Route::post('categories/save', [CategoriesController::class, 'saveCategories'])->name('categories.save');
+            Route::prefix('categories')->group(function () {
+                Route::get('/', [CategoriesController::class, 'index'])->name('categories.index');
+                Route::post('/save', [CategoriesController::class, 'saveCategories'])->name('categories.save');
+            });
+            Route::prefix('fasilitas')->group(function () {
+                Route::get('/', [FasilitasController::class, 'index'])->name('fasilitas.index');
+                Route::post('/save', [FasilitasController::class, 'saveFasilitas'])->name('fasilitas.save');
+            });
+            Route::prefix('kost')->group(function () {
+                Route::get('/', [KostController::class, 'index'])->name('kost.index');
+                Route::post('/save', [KostController::class, 'saveKost'])->name('kost.save');
+            });
         });
     });
 });

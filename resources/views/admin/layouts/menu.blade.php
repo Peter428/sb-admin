@@ -19,21 +19,32 @@
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading">
-        Master Data
-    </div>
-
+    <div class="sidebar-heading">Master Data</div>
     <li class="nav-item @if (Request::segment(3) == 'categories') active @endif">
         <a class="nav-link" href="{{route('categories.index')}}">
             <i class="fas fa-fw fa-box"></i>
             <span>Kategori</span></a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item @if (Request::segment(3) == 'fasilitas') active @endif">
+        <a class="nav-link" href="{{route('fasilitas.index')}}">
+            <i class="fas fa-fw fa-box"></i>
+            <span>Fasilitas</span></a>
+    </li>
+    <li class="nav-item @if (Request::segment(3) == 'kost') active @endif">
+        <a class="nav-link" href="{{route('kost.index')}}">
             <i class="fas fa-fw fa-home"></i>
             <span>Kost</span></a>
     </li>
-
+    <li class="nav-item @if (Request::segment(3) == 'penyewaan') active @endif">
+        <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-box"></i>
+            <span>Penyewaan</span></a>
+    </li>
+    <li class="nav-item @if (Request::segment(3) == 'customer') active @endif">
+        <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-box"></i>
+            <span>Pelanggan</span></a>
+    </li>
     <li class="nav-item">
         <a class="nav-link" href="#">
             <i class="fas fa-fw fa-user"></i>
@@ -54,7 +65,11 @@
             <i class="fas fa-fw fa-file"></i>
             <span>Data Transaksi</span></a>
     </li>
-
+    <li class="nav-item @if (Request::segment(3) == 'pembayaran') active @endif">
+        <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-box"></i>
+            <span>Pembayaran</span></a>
+    </li>
     <!-- Nav Item - Charts -->
     <li class="nav-item">
         <a class="nav-link" href="#">

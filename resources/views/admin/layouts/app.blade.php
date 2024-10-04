@@ -15,9 +15,7 @@
     <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
 
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!--Bolstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -26,6 +24,56 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+    <!--select2-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <style>
+        .select2-container {
+            width: 100% !important; /* Memastikan Select2 mengisi 100% */
+        }
+
+        .select2-container .select2-selection--single {
+            height: 38px; /* Menentukan tinggi untuk single select */
+            padding: 6px; /* Menentukan padding */
+            border: 1px solid #ced4da; /* Border sesuai dengan Bootstrap */
+            border-radius: 4px; /* Radius border */
+            font-size: 14px; /* Ukuran font */
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 1.5; /* Jarak vertikal konten */
+            padding: 0; /* Menghilangkan padding */
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 38px; /* Tinggi panah dropdown */
+        }
+
+        .select2-container--default .select2-selection--multiple {
+           /* border: 1px solid #ced4da; !* Border untuk multiple select *!*/
+            border-radius: 4px; /* Radius border */
+            padding: 6px; /* Padding di sekitar pilihan */
+            min-height: 38px; /* Tinggi minimum untuk area multiple select */
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+            margin: 2px; /* Margin antara pilihan */
+            padding: 0 6px; /* Padding di dalam pilihan */
+            border-radius: 6px; /* Radius border untuk pilihan */
+            background-color: #4e6bc9; /* Warna latar belakang pilihan */
+            color: #fff; /* Warna teks pilihan */
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+            color: #fff; /* Warna ikon hapus */
+            margin-left: 5px; /* Margin kiri untuk ikon hapus */
+            cursor: pointer; /* Tanda kursor saat hover */
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__placeholder {
+            color: #6c757d; /* Warna placeholder untuk multiple select */
+        }
+
+    </style>
 </head>
 
 <body id="page-top">
@@ -104,9 +152,17 @@
 <script src="{{ asset('assets/js/demo/chart-area-demo.js') }}"></script>
 <script src="{{ asset('assets/js/demo/chart-pie-demo.js') }}"></script>
 
+<!--select2-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <script>
     const Toast = Swal.mixin({
         toast: true
@@ -138,7 +194,6 @@
 @endif
 
 @stack('page-scripts')
-@stack('after-scripts')
 </body>
 
 </html>
