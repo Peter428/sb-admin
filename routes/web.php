@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\MasterData\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,15 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+    #logout
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
-    Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    #dashboard
+    #master-data
+    Route::prefix('admin')->group(function () {
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::prefix('master-data')->group(function () {
+            Route::get('categories', [CategoriesController::class, 'index'])->name('categories.index');
+            Route::post('categories/save', [CategoriesController::class, 'saveCategories'])->name('categories.save');
+        });
+    });
 });

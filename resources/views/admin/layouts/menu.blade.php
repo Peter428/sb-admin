@@ -1,5 +1,5 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('dashboard')}}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-users"></i>
         </div>
@@ -8,10 +8,11 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="/admin/dashboard">
+    <li class="nav-item @if (Request::segment(2) == 'dashboard') active @endif">
+        <a class="nav-link" href="{{route('dashboard')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Dashboard</span>
+        </a>
     </li>
 
     <!-- Divider -->
@@ -22,19 +23,19 @@
         Master Data
     </div>
 
-    <li class="nav-item">
-        <a class="nav-link" href="/admin/dashboard">
+    <li class="nav-item @if (Request::segment(3) == 'categories') active @endif">
+        <a class="nav-link" href="{{route('categories.index')}}">
             <i class="fas fa-fw fa-box"></i>
             <span>Kategori</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/admin/dashboard">
+        <a class="nav-link" href="#">
             <i class="fas fa-fw fa-home"></i>
             <span>Kost</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/admin/dashboard">
+        <a class="nav-link" href="#">
             <i class="fas fa-fw fa-user"></i>
             <span>User</span></a>
     </li>
@@ -49,14 +50,14 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="/admin/dashboard">
+        <a class="nav-link" href="#">
             <i class="fas fa-fw fa-file"></i>
             <span>Data Transaksi</span></a>
     </li>
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="#">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Detail Transaksi</span></a>
     </li>
