@@ -5,20 +5,21 @@
             <div class="card shadow h-100 py-2">
                 <div class="card-header d-flex flex-row align-items-center justify-content-between">
                     <h4 class="card-title">Master Kost</h4>
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#modal-tambah-kost">Tambah Data</button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#modal-tambah-kost">Tambah Data
+                    </button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover" id="table-kost">
+                        <table class="table table-bordered table-hover" id="table-data-kost">
                             <thead>
                             <tr>
-                                <th style="width: 5%;">No</th>
-                                <th style="width: 10%;">Nama kost</th>
-                                <th style="width: 10%;">Kategori kost</th>
+                                <th>No</th>
+                                <th>Nama kost</th>
+                                <th>Kategori kost</th>
                                 <th>Fasilitas kost</th>
-                                <th class="text-right" style="width: 10%;">Harga kost</th>
-                                <th style="width: 15%;">Alamat kost</th>
-                                <th style="width: 5%;">Aksi</th>
+                                <th class="text-right">Harga kost</th>
+                                <th>Alamat kost</th>
+                                <th>Aksi</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -31,7 +32,8 @@
                                     <td class="text-right">{{number_format($item->harga_kost)}}</td>
                                     <td>{{$item->alamat_kost ?? '-'}}</td>
                                     <td>
-                                        <button class="btn btn-sm btn-outline-primary"><i class="fa fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-outline-primary"><i class="fa fa-eye"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             @empty
@@ -53,7 +55,8 @@
 @push('page-scripts')
     <script>
         $(document).ready(function () {
-            $(`#table-kost`).DataTable();
+
+            $('#table-data-kost').DataTable();
         });
     </script>
 @endpush

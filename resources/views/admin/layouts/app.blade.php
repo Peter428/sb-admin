@@ -155,14 +155,14 @@
 <!--select2-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-    $(document).ready(function() {
+    $(function () {
         $('.select2').select2();
+        $('.dataTable').DataTable();
     });
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     const Toast = Swal.mixin({
         toast: true
@@ -194,6 +194,7 @@
 @endif
 
 @stack('page-scripts')
+@stack('after-scripts')
 </body>
 
 </html>
