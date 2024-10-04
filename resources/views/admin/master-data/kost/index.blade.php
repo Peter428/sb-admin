@@ -58,6 +58,7 @@
     <script>
         $(document).ready(function () {
             $('#table-data-kost').DataTable();
+
         });
     </script>
 @endpush
