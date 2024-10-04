@@ -54,8 +54,8 @@
 @endsection
 @push('page-scripts')
     <script>
-        $(document).ready(function () {
-
+        $(document).ready(function (e) {
+            e.preventDefault();
             $('#table-data-kost').DataTable();
         });
     </script>
