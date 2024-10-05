@@ -36,7 +36,7 @@
             <span>Kost</span></a>
     </li>
     <li class="nav-item @if (Request::segment(3) == 'penyewaan') active @endif">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('penyewaan.index')}}">
             <i class="fas fa-fw fa-box"></i>
             <span>Penyewaan</span></a>
     </li>
@@ -64,11 +64,6 @@
         <a class="nav-link" href="#">
             <i class="fas fa-fw fa-file"></i>
             <span>Data Transaksi</span></a>
-    </li>
-    <li class="nav-item @if (Request::segment(3) == 'pembayaran') active @endif">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-box"></i>
-            <span>Pembayaran</span></a>
     </li>
     <!-- Nav Item - Charts -->
     <li class="nav-item">

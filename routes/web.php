@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\MasterData\CategoriesController;
 use App\Http\Controllers\Admin\MasterData\FasilitasController;
 use App\Http\Controllers\Admin\MasterData\KostController;
+use App\Http\Controllers\Admin\MasterData\PenyewaanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,11 @@ Route::middleware(['auth'])->group(function () {
             Route::prefix('kost')->group(function () {
                 Route::get('/', [KostController::class, 'index'])->name('kost.index');
                 Route::post('/save', [KostController::class, 'saveKost'])->name('kost.save');
+            });
+
+            Route::prefix('penyewaan')->group(function () {
+                Route::get('/', [PenyewaanController::class, 'index'])->name('penyewaan.index');
+                Route::get('/detail-sewa/{id}', [PenyewaanController::class, 'detailSewa'])->name('penyewaan.detaiSewa');
             });
         });
     });
